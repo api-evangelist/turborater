@@ -1,0 +1,98 @@
+aid: turborater
+name: TurboRater
+review:
+  question: Does TurboRater expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. TurboRater's rating integration is
+    request/response over HTTPS web services (real-time rating calls that
+    return premiums) plus file-based bridge/export in ITC's Turbo Tags 2.0
+    (.TT2) or AL3 formats. There is no documented server-push transport
+    (WebSocket or SSE) on TurboRater's own API to model. The "real-time"
+    behavior is a low-latency synchronous rating request, not a bidirectional
+    or streaming socket.
+findings:
+  summary: |
+    TurboRater does not publish a documented public WebSocket API. TurboRater
+    is a personal lines comparative insurance rater from Insurance Technologies
+    Corporation (ITC), now part of Zywave and marketed within Zywave Sales
+    Cloud. ITC exposes a real web service-based rating API - first offered to
+    third parties in 2010 when ITC turned TurboRater into a service-oriented
+    application, and extended with a homeowner rating API in 2016 that returns
+    rates from 40+ homeowner carriers and 180+ auto carriers through a single
+    quote request. The API returns quote data as XML or ITC's proprietary
+    Turbo Tags (TT2) format, delivers real-time rates, and supports a bridge
+    that hands a completed quote into a downstream point-of-sale or agency
+    management system. However, the API is partner- and subscription-gated:
+    there is no public developer portal, no public API reference, and no
+    published endpoint hostnames, authentication scheme, or pricing. Access,
+    carrier appointments, and developer documentation are provisioned through
+    ITC/Zywave sales. No realtime, bidirectional, or streaming WebSocket
+    (ws:// or wss://) endpoint is documented anywhere in TurboRater's public
+    material as of the review date.
+  accessModel: |
+    Partner- and subscription-gated. The rating API is not self-serve. A
+    prospective consumer (agency, carrier, lead provider, or online aggregator)
+    contacts ITC/Zywave, establishes a subscription and the necessary carrier
+    appointments, and is then provisioned with credentials and developer
+    documentation. Because of this, the endpoints in apis.yml are honestly
+    modeled from published behavior (real-time rating request, applicant/risk
+    capture, real-time bridge/export, XML/TurboTags results retrieval) and are
+    flagged endpointsModeled=true rather than copied from a public API reference.
+  transports:
+    - protocol: REST/Web Service
+      scheme: https
+      documented: partial
+      note: >-
+        ITC describes a web service-based rating API returning real-time rates
+        and quote data as XML or TurboTags. Request/response over HTTPS. No
+        public base URL or endpoint reference is published; access is gated.
+    - protocol: File Bridge / Export
+      scheme: https
+      documented: true
+      note: >-
+        Quotes are bridged or exported in Turbo Tags 2.0 (.TT2) or AL3 formats
+        into downstream point-of-sale, agency management, and website systems,
+        including via daily download. Batch/file, not a socket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >-
+        No WebSocket endpoint is documented anywhere in TurboRater, ITC, or
+        Zywave Sales Cloud material as of the review date.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    The endpoints associated with each modeled API in apis.yml are inferred
+    from published TurboRater/ITC behavior (single-entry comparative rating,
+    real-time rates from 200+ carriers, XML/TurboTags quote pull, real-time
+    bridge and .TT2/AL3 export). ITC does not publish a public API reference,
+    so no concrete request paths, hostnames, or schemas are asserted here.
+sources:
+  - url: https://www.zywave.com/sales-cloud/turborater/
+    type: Documentation
+    note: TurboRater within Zywave Sales Cloud; real-time API-driven rates from 200+ carriers, personal lines quoting API, AMS/CRM/website integration.
+  - url: https://www.turborater.com/products/rating/features/integration
+    type: Documentation
+    note: Integration and bridge/export behavior; TT2/AL3, XML/TurboTags quote pull, agency management system bridges.
+  - url: https://www.turborater.com/release/2016/11/02/itc-launches-homeowner-rating-api-for-online-agencies-and-lead-providers
+    type: PressRelease
+    note: 2016 homeowner rating API launch - 40+ homeowner carriers and 180+ auto carriers via a single web service-based quote request; ITC made TurboRater service-oriented in 2010.
+  - url: https://wiki.agencysystems.com/wiki/ITC_TurboRater_Rating_Integration
+    type: Documentation
+    note: Third-party integration write-up describing the Turbo Tags 2.0 (.TT2) file-based bridge/download, not a real-time socket.
+  - url: https://www.turborater.com/
+    type: Website
+    note: TurboRater personal lines comparative rater; 200+ carriers; auto, home, condo, renters, dwelling fire, motorcycle.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and TurboRater's rating integration
+    is request/response web services plus file-based (.TT2/AL3) bridge/export.
+    No AsyncAPI document was created because there is no server-push transport
+    on TurboRater's own API to model. Because the API is partner-gated with no
+    public reference, the modeled APIs are flagged endpointsModeled=true and no
+    concrete endpoints were fabricated.

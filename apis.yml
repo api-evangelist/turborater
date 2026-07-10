@@ -1,0 +1,133 @@
+aid: turborater
+url: https://raw.githubusercontent.com/api-evangelist/turborater/refs/heads/main/apis.yml
+name: TurboRater
+kind: company
+description: >-
+  TurboRater is a personal lines comparative insurance rating platform from
+  Insurance Technologies Corporation (ITC), now part of Zywave (marketed within
+  Zywave Sales Cloud). It lets agencies, carriers, lead providers, and online
+  aggregators quote auto, homeowners, condominium, renters, dwelling fire, and
+  motorcycle coverage from 200+ carriers in a single workflow. ITC exposes a
+  web service-based rating API (a service-oriented version of TurboRater it
+  first offered to third parties in 2010, extended with a homeowner rating API
+  in 2016) that returns real-time rates from hundreds of carriers and can pull
+  quote data as XML or ITC's proprietary Turbo Tags (TT2) format, plus a
+  real-time bridge that hands a completed quote into an agency point-of-sale or
+  management system. The rating API is partner- and subscription-gated - access,
+  carrier appointments, and the developer documentation are provisioned through
+  ITC/Zywave sales rather than a public developer portal, so the specific
+  endpoints below are honestly modeled from published behavior, not copied from
+  a public API reference.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- InsurTech
+- Comparative Rating
+- Auto Insurance
+- Home Insurance
+- Quotes
+- Real-Time Rating
+- Personal Lines
+- ITC
+- Zywave
+created: '2026-07-10'
+modified: '2026-07-10'
+specificationVersion: '0.19'
+apis:
+- aid: turborater:turborater-rating-quotes-api
+  name: TurboRater Rating and Quotes API
+  tags:
+  - Rating
+  - Quotes
+  - Real-Time Rating
+  - Personal Lines
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.zywave.com/sales-cloud/turborater/
+  properties:
+  - url: https://www.zywave.com/sales-cloud/turborater/
+    type: Documentation
+  - url: https://www.turborater.com/products/rating/features/integration
+    type: Documentation
+  description: >-
+    Submit a single comparative rating request and receive real-time premiums
+    and coverage back from many carriers at once, across auto, homeowners,
+    condominium, renters, dwelling fire, and motorcycle lines. This is the core
+    web service-based rating surface ITC has offered to third parties since
+    2010. Access is partner-gated and carrier appointments must be provisioned;
+    the request/response paths are honestly modeled, not published in a public
+    API reference. endpointsModeled=true.
+- aid: turborater:turborater-applicants-api
+  name: TurboRater Applicants and Risk API
+  tags:
+  - Applicants
+  - Risk
+  - Data Entry
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.zywave.com/sales-cloud/turborater/
+  properties:
+  - url: https://www.zywave.com/sales-cloud/turborater/
+    type: Documentation
+  description: >-
+    Capture the applicant, drivers, vehicles, dwelling, and coverage detail that
+    a comparative rating request is built from, so a single point of data entry
+    can be reused across every carrier quote and bridged downstream without
+    re-keying. Modeled from TurboRater's single-entry quoting workflow; the
+    concrete resource paths are not published in a public reference.
+    endpointsModeled=true.
+- aid: turborater:turborater-realtime-bridge-api
+  name: TurboRater Real-Time Bridge API
+  tags:
+  - Bridge
+  - Real-Time
+  - Point of Sale
+  - Integration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.turborater.com/products/rating/features/integration
+  properties:
+  - url: https://www.turborater.com/products/rating/features/integration
+    type: Documentation
+  - url: https://wiki.agencysystems.com/wiki/ITC_TurboRater_Rating_Integration
+    type: Documentation
+  description: >-
+    Hand a completed quote from TurboRater into a downstream point-of-sale,
+    agency management, or website platform in real time, or export it for daily
+    download, using ITC's Turbo Tags 2.0 (.TT2) or AL3 formats. ITC requires a
+    minimum real-time response time and lets agents either bind through
+    TurboRater or bridge the quote into their own system. Modeled from published
+    integration behavior; exact bridge endpoints are provisioned per partner.
+    endpointsModeled=true.
+- aid: turborater:turborater-results-retrieval-api
+  name: TurboRater Results Retrieval API
+  tags:
+  - Results
+  - Quote Retrieval
+  - XML
+  - TurboTags
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.turborater.com/products/rating/features/integration
+  properties:
+  - url: https://www.turborater.com/products/rating/features/integration
+    type: Documentation
+  description: >-
+    Pull the quote and rate results a rating request produced, in either XML or
+    ITC's proprietary TurboTags (TT2) format, so any third-party system can
+    consume premiums, coverages, carrier eligibility, and pay plans. Modeled
+    from the documented statement that "with the TurboRater API, any system can
+    pull quote data in either XML or our proprietary TurboTags format"; the
+    concrete retrieval endpoint is partner-provisioned. endpointsModeled=true.
+common:
+- type: Website
+  url: https://www.turborater.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/insurance-technologies-corporation
+- type: Documentation
+  url: https://www.turborater.com/products/rating/features/integration
+- type: Plans
+  url: plans/turborater-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/turborater-rate-limits.yml
+- type: FinOps
+  url: finops/turborater-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

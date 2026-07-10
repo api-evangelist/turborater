@@ -1,0 +1,57 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: TurboRater
+providerId: turborater
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Insurance
+- Comparative Rating
+- Real-Time Rating
+- Rate Limiting
+- ITC
+- Zywave
+description: >-
+  TurboRater (ITC / Zywave) does not publish numeric rate limits for its rating
+  API. Because the API is partner-gated, throughput expectations and any quota
+  are set per partner agreement rather than through a public developer policy.
+  ITC does publish one relevant constraint on the other side of the transaction:
+  it requires partners to meet a minimum response time when returning real-time
+  rates, to protect the agent experience. Effective quote volume is governed by
+  the partner's subscription and carrier appointments, not by a documented
+  per-minute request cap.
+notes: >-
+  No numeric per-account or per-endpoint request limits are documented, because
+  no public API reference exists. Verify throughput terms, retry, and SLA
+  expectations directly in the ITC/Zywave partner agreement. Endpoints are
+  modeled (endpointsModeled=true), not published.
+sources:
+- https://www.zywave.com/sales-cloud/turborater/
+- https://www.turborater.com/products/rating/features/integration
+- https://www.turborater.com/products/automated-agency-marketing/features/integration-with-lead-providers-and-other-third-party-systems
+limits:
+- name: Rating API Requests
+  scope: partner
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented; governed by the partner agreement.
+- name: Quote Volume
+  scope: account
+  metric: quotes
+  limit: per subscription
+  notes: Effective quote throughput is bounded by the partner's subscription and carrier appointments.
+- name: Real-Time Response Time
+  scope: partner
+  metric: latency
+  limit: minimum required (ITC-set)
+  notes: ITC requires partners to meet a minimum response time when returning real-time rates to preserve the agent experience.
+policies:
+- name: Partner Provisioning
+  description: Access, quota, and carrier appointments are provisioned per partner rather than through a public self-serve policy.
+- name: Backoff Strategy
+  description: Consumers of the rating API should implement retry with exponential backoff and jitter, and honor any Retry-After guidance provided in the partner agreement.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

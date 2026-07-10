@@ -1,0 +1,107 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: TurboRater
+providerId: turborater
+created: '2026-07-10'
+modified: '2026-07-10'
+reconciled: false
+tags:
+- Insurance
+- Comparative Rating
+- Real-Time Rating
+- ITC
+- Zywave
+- Plans
+description: >-
+  TurboRater (ITC / Zywave) does not publish public, self-serve pricing for its
+  rating platform or its rating API. Access is sold as a subscription and is
+  quoted by ITC/Zywave sales based on the products used, the lines of business,
+  the carrier appointments required, and, for the API, integration and quote
+  volume. There is no free developer tier and no published per-quote rate; the
+  rating API is provisioned to qualified partners (agencies, carriers, lead
+  providers, and online aggregators). The plans below are modeled from that
+  access model, not copied from a public price list.
+notes: >-
+  All amounts are contact-sales. Per-quote or per-subscription rates are not
+  publicly disclosed; verify current terms directly with ITC/Zywave. The API is
+  partner-gated - endpoints are modeled (endpointsModeled=true), not published.
+sources:
+- https://www.zywave.com/sales-cloud/turborater/
+- https://www.turborater.com/
+- https://www.turborater.com/products/rating/features/integration
+plans:
+- id: turborater-subscription
+  name: TurboRater Subscription
+  type: subscription
+  description: >-
+    Seat/agency subscription to the TurboRater comparative rater covering auto,
+    home, condo, renters, dwelling fire, and motorcycle personal lines across
+    200+ carriers. Priced by ITC/Zywave sales based on products, states, and
+    carrier connections.
+  entries:
+  - label: Comparative Rating Subscription
+    name: rating_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: us
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Personal Lines Comparative Rating
+  - name: 200+ Carrier Connections
+  - name: Real-Time Rates
+  - name: Quote Bridge and Export
+- id: turborater-rating-api
+  name: TurboRater Rating API
+  type: partner
+  description: >-
+    Partner-provisioned access to the web service-based rating API for embedding
+    real-time home, auto, and flood quotes into a third party's own website,
+    AMS, CRM, or lead-management platform, with quote data returned as XML or
+    TurboTags. Requires a subscription and carrier appointments; priced by
+    integration and volume.
+  entries:
+  - label: Rating API Access
+    name: rating_api_access
+    type: usage
+    metric: quotes
+    limit: -1
+    timeFrame: month
+    geo: us
+    unit: 1
+    price: contact sales (subscription plus quote volume)
+    userMultiplied: false
+  elements:
+  - name: Real-Time Rating API
+  - name: XML and TurboTags Output
+  - name: Real-Time Bridge
+  - name: Carrier Appointment Provisioning
+- id: turborater-enterprise
+  name: Carrier / Aggregator Enterprise
+  type: enterprise
+  description: >-
+    Custom agreement for carriers, large agencies, lead providers, and online
+    aggregators consuming rates at volume, with negotiated terms, dedicated
+    integration support, and carrier relationship management. Contact ITC/Zywave.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: us
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Multi-Carrier / Multi-Agency Relationships
+  - name: Dedicated Integration Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -116,6 +116,8 @@ apis:
     pull quote data in either XML or our proprietary TurboTags format"; the
     concrete retrieval endpoint is partner-provisioned. endpointsModeled=true.
 common:
+- type: DomainSecurity
+  url: security/turborater-domain-security.yml
 - type: Website
   url: https://www.turborater.com
 - type: LinkedIn

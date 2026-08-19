@@ -44,7 +44,7 @@ tags:
 - Zywave
 created: '2026-07-10'
 modified: '2026-07-10'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: turborater:turborater-rating-quotes-api
   name: TurboRater Rating and Quotes API

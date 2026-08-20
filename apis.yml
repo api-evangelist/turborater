@@ -33,6 +33,17 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/turborater.png
 tags:
 - Insurance
+- Insurtech
+- Comparative Rating
+- Auto Insurance
+- Home Insurance
+- Quotes
+- Real-Time Rating
+- Personal Lines
+- ITC
+- Zywave
+tags_raw:
+- Insurance
 - InsurTech
 - Comparative Rating
 - Auto Insurance
@@ -89,6 +100,11 @@ apis:
 - aid: turborater:turborater-realtime-bridge-api
   name: TurboRater Real-Time Bridge API
   tags:
+  - Bridge
+  - Real-Time
+  - Point-of-Sale
+  - Integration
+  tags_raw:
   - Bridge
   - Real-Time
   - Point of Sale

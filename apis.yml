@@ -71,6 +71,11 @@ apis:
 - aid: turborater:turborater-rating-quotes-api
   name: TurboRater Rating and Quotes API
   tags:
+  - Ratings
+  - Quotes
+  - Real-Time Rating
+  - Personal Lines
+  tags_raw:
   - Rating
   - Quotes
   - Real-Time Rating

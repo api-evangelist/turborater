@@ -69,6 +69,7 @@ modified: '2026-07-10'
 specificationVersion: '0.23'
 apis:
 - aid: turborater:turborater-rating-quotes-api
+  endpointsModeled: true
   name: TurboRater Rating and Quotes API
   tags:
   - Ratings
@@ -96,8 +97,13 @@ apis:
     the request/response paths are honestly modeled, not published in a public
     API reference. endpointsModeled=true.
 - aid: turborater:turborater-applicants-api
+  endpointsModeled: true
   name: TurboRater Applicants and Risk API
   tags:
+  - Applicants
+  - Risk Management
+  - Data Entry
+  tags_raw:
   - Applicants
   - Risk
   - Data Entry
@@ -114,6 +120,7 @@ apis:
     concrete resource paths are not published in a public reference.
     endpointsModeled=true.
 - aid: turborater:turborater-realtime-bridge-api
+  endpointsModeled: true
   name: TurboRater Real-Time Bridge API
   tags:
   - Bridge
@@ -141,6 +148,7 @@ apis:
     integration behavior; exact bridge endpoints are provisioned per partner.
     endpointsModeled=true.
 - aid: turborater:turborater-results-retrieval-api
+  endpointsModeled: true
   name: TurboRater Results Retrieval API
   tags:
   - Results

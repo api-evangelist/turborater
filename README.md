@@ -1,4 +1,4 @@
-# TurboRater (turborater)
+# TurboRater
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,68 +64,105 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-TurboRater is a personal lines comparative insurance rating platform from **Insurance Technologies Corporation (ITC)**, now part of **Zywave** and marketed within Zywave Sales Cloud. It lets agencies, carriers, lead providers, and online aggregators quote auto, homeowners, condominium, renters, dwelling fire, and motorcycle coverage from 200+ carriers in a single, single-entry workflow, with real-time rates backed by carrier underwriting rules.
+TurboRater is a personal lines comparative insurance rating platform from Insurance Technologies Corporation (ITC), now part of Zywave (marketed within Zywave Sales Cloud). It lets agencies, carriers, lead providers, and online aggregators quote auto, homeowners, condominium, renters, dwelling fire, and motorcycle coverage from 200+ carriers in a single workflow. ITC exposes a web service-based rating API (a service-oriented version of TurboRater it first offered to third parties in 2010, extended with a homeowner rating API in 2016) that returns real-time rates from hundreds of carriers and can pull quote data as XML or ITC's proprietary Turbo Tags (TT2) format, plus a real-time bridge that hands a completed quote into an agency point-of-sale or management system. The rating API is partner- and subscription-gated - access, carrier appointments, and the developer documentation are provisioned through ITC/Zywave sales rather than a public developer portal, so the specific endpoints below are honestly modeled from published behavior, not copied from a public API reference.
 
-ITC exposes a **web service-based rating API**. ITC turned TurboRater into a service-oriented application for third parties in 2010, and in 2016 launched a homeowner rating API that returns rates from 40+ homeowner carriers (auto from 180+ carriers) through a single quote request. The API delivers real-time rates and can pull quote data as **XML or ITC's proprietary Turbo Tags (TT2) format**, and it supports a **real-time bridge** that hands a completed quote into a downstream point-of-sale, agency management, or website system (also via .TT2 / AL3 export).
+**Areas:** Insurance · Insurtech · Comparative Rating · Auto Insurance · Home Insurance · Quotes · Real-Time Rating · Personal Lines · ITC · Zywave
 
-## Access model (important)
+## TurboRater on APIs.io
 
-The rating API is **partner- and subscription-gated**. There is no public developer portal, no public API reference, no published endpoint hostnames or authentication scheme, and no public pricing. Access, carrier appointments, and developer documentation are provisioned through ITC/Zywave sales to qualified partners (agencies, carriers, lead providers, and online aggregators).
+Everything profiled for TurboRater is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/turborater/](https://apis.io/providers/turborater/)** — or go straight to one of the APIs or properties below.
 
-Because of this, the APIs listed in `apis.yml` are **honestly modeled** from published TurboRater/ITC behavior and are flagged **`endpointsModeled=true`**. No concrete request paths, hostnames, or schemas are asserted or fabricated in this entry.
+### APIs (4)
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/turborater/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/turborater/refs/heads/main/apis.yml)
+- [TurboRater Rating and Quotes API](https://apis.io/apis/turborater/turborater-rating-quotes-api/) — Submit a single comparative rating request and receive real-time premiums and coverage back from many carriers at once, across auto, homeowners,…
+- [TurboRater Applicants and Risk API](https://apis.io/apis/turborater/turborater-applicants-api/) — Capture the applicant, drivers, vehicles, dwelling, and coverage detail that a comparative rating request is built from, so a single point of data entry can…
+- [TurboRater Real-Time Bridge API](https://apis.io/apis/turborater/turborater-realtime-bridge-api/) — Hand a completed quote from TurboRater into a downstream point-of-sale, agency management, or website platform in real time, or export it for daily…
+- [TurboRater Results Retrieval API](https://apis.io/apis/turborater/turborater-results-retrieval-api/) — Pull the quote and rate results a rating request produced, in either XML or ITC's proprietary TurboTags (TT2) format, so any third-party system can consume…
 
-## Tags
+### Published properties
 
-- Insurance
-- InsurTech
-- Comparative Rating
-- Auto Insurance
-- Home Insurance
-- Quotes
-- Real-Time Rating
-- Personal Lines
-- ITC
-- Zywave
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Security (1)
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+Authentication, trust centre, and vulnerability disclosure.
 
-## APIs (modeled)
+- [Turborater Domain Security](https://apis.io/security/turborater/turborater-domain-security/)
 
-### TurboRater Rating and Quotes API
+#### Plans and pricing (1)
 
-Submit a single comparative rating request and receive real-time premiums and coverage back from many carriers at once, across auto, homeowners, condominium, renters, dwelling fire, and motorcycle lines. Core web service-based rating surface offered to third parties since 2010. `endpointsModeled=true`.
+Published plans, tiers and prices.
 
-### TurboRater Applicants and Risk API
+- [Turborater Plans Pricing](https://apis.io/plans/turborater/turborater-plans-pricing/)
 
-Capture the applicant, drivers, vehicles, dwelling, and coverage detail a comparative rating request is built from, so a single point of data entry is reused across every carrier quote and bridged downstream without re-keying. `endpointsModeled=true`.
+#### Rate limits (1)
 
-### TurboRater Real-Time Bridge API
+Published request limits.
 
-Hand a completed quote from TurboRater into a downstream point-of-sale, agency management, or website platform in real time, or export it for daily download, using ITC's Turbo Tags 2.0 (.TT2) or AL3 formats. ITC requires a minimum real-time response time and lets agents either bind through TurboRater or bridge the quote into their own system. `endpointsModeled=true`.
+- [Turborater Rate Limits](https://apis.io/rate-limits/turborater/turborater-rate-limits/)
 
-### TurboRater Results Retrieval API
+#### FinOps (1)
 
-Pull the quote and rate results a rating request produced, in either XML or ITC's proprietary TurboTags (TT2) format, so any third-party system can consume premiums, coverages, carrier eligibility, and pay plans. `endpointsModeled=true`.
+What the API costs to run, by operation.
 
-## Common Properties
+- [Turborater Finops](https://apis.io/finops/turborater/turborater-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.turborater.com)
-- [LinkedIn](https://www.linkedin.com/company/insurance-technologies-corporation)
 - [Documentation](https://www.turborater.com/products/rating/features/integration)
-- [Plans](plans/turborater-plans-pricing.yml)
-- [Rate Limits](rate-limits/turborater-rate-limits.yml)
-- [Fin Ops](finops/turborater-finops.yml)
 
-## WebSocket review
+## API Evangelist rating
 
-TurboRater does **not** expose a documented public WebSocket API. Its rating integration is request/response web services over HTTPS plus file-based (.TT2 / AL3) bridge/export. The "real-time" behavior is a low-latency synchronous rating request, not a bidirectional or streaming socket. See `review.yml`.
+**Kin Score 9.1** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 7.9 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 0.6** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.3** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/turborater/](https://apis.io/providers/turborater/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for TurboRater: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/turborater/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
